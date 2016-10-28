@@ -1,13 +1,13 @@
-import UpcomingSeries from '../models/upcomingseries';
+import TeamEngland from '../models/teamengland';
 import errorHandler from '../../global/handlers/errorHandler';
 
 function get(req, res) {
-  return UpcomingSeries.find((err, upcomingseries) => {
+  return TeamEngland.find((err, teamengland) => {
     if (err) {
-      return res.json(errorHandler.UPCOMINGSERIES);
+      return res.json(errorHandler.TEAMENGLAND);
     }
      const payload = {
-    	Series: upcomingseries
+    	Players: teamengland
     };
     return res.json(payload);
   });

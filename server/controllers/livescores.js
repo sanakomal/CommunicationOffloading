@@ -1,13 +1,13 @@
-import News from '../models/news';
+import LiveScores from '../models/livescores';
 import errorHandler from '../../global/handlers/errorHandler';
 
 function get(req, res) {
-  return News.find((err, news) => {
+  return LiveScores.find((err, livescores) => {
     if (err) {
-      return res.json(errorHandler.NEWS);
+      return res.json(errorHandler.LIVESCORES);
     }
     const payload = {
-    	item: news
+    	Scorecard: livescores
     };
     return res.json(payload);
   });

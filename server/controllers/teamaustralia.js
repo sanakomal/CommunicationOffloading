@@ -1,13 +1,13 @@
-import News from '../models/news';
+import TeamAustralia from '../models/teamaustralia';
 import errorHandler from '../../global/handlers/errorHandler';
 
 function get(req, res) {
-  return News.find((err, news) => {
+  return TeamAustralia.find((err, teamaustralia) => {
     if (err) {
-      return res.json(errorHandler.NEWS);
+      return res.json(errorHandler.TEAMAUSTRALIA);
     }
     const payload = {
-    	item: news
+    	Players: teamaustralia
     };
     return res.json(payload);
   });

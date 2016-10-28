@@ -1,14 +1,62 @@
 const queries = {
-  NEWS: '?q=select%20*%20from%20cricket.news%20%20where%20region%3D%22in%22'
-  UPCOMINGSERIES: '?q=select%20*%20from%20cricket.series.upcoming%20%20where%20region%3D%22in%22'
+  NEWS: '?q=select%20*%20from%20cricket.news%20%20where%20region%3D%22in%22',
+  UPCOMINGSERIES: '?q=select%20*%20from%20cricket.series.upcoming%20%20where%20region%3D%22in%22',
+  ONGOINGSERIES: '?q=select%20*%20from%20cricket.series.ongoing%20%20where%20region%3D%22in%22',
+  TEAMAFGHANISTAN: '?q=select%20*%20from%20cricket.team.profile%20where%20team_id%3D1188',
+  TEAMAUSTRALIA: '?q=select%20*%20from%20cricket.team.profile%20where%20team_id%3D1',
+  TEAMBANGLADESH: '?q=select%20*%20from%20cricket.team.profile%20where%20team_id%3D2',
+  TEAMENGLAND: '?q=select%20*%20from%20cricket.team.profile%20where%20team_id%3D3',
+  TEAMINDIA: '?q=select%20*%20from%20cricket.team.profile%20where%20team_id%3D4',
+  TEAMIRELAND: '?q=select%20*%20from%20cricket.team.profile%20where%20team_id%3D13',
+  TEAMNZ: '?q=select%20*%20from%20cricket.team.profile%20where%20team_id%3D5',
+  TEAMPAKISTAN: '?q=select%20*%20from%20cricket.team.profile%20where%20team_id%3D6',
+  TEAMSCOTLAND: '?q=select%20*%20from%20cricket.team.profile%20where%20team_id%3D16',
+  TEAMSOUTHAFRICA: '?q=select%20*%20from%20cricket.team.profile%20where%20team_id%3D7',
+  TEAMSRILANKA: '?q=select%20*%20from%20cricket.team.profile%20where%20team_id%3D8',
+  TEAMUAE: '?q=select%20*%20from%20cricket.team.profile%20where%20team_id%3D21',
+  TEAMWESTINDIES: '?q=select%20*%20from%20cricket.team.profile%20where%20team_id%3D9',
+  TEAMZIMBABWE: '?q=select%20*%20from%20cricket.team.profile%20where%20team_id%3D10',
+  LIVESCORES: '?q=select%20*%20from%20cricket.scorecard.live.summary'
 };
 
 const options = {
-  NEWS: '&diagnostics=true&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0'
-  UPCOMINGSERIES: '&diagnostics=true&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0'
+  NEWS: '&diagnostics=true&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  UPCOMINGSERIES: '&diagnostics=true&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  ONGOINGSERIES: '&diagnostics=true&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  TEAMAFGHANISTAN: '&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  TEAMAUSTRALIA: '&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  TEAMBANGLADESH: '&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  TEAMENGLAND: '&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  TEAMINDIA: '&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  TEAMIRELAND: '&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  TEAMNZ: '&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  TEAMPAKISTAN: '&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  TEAMSCOTLAND: '&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  TEAMSOUTHAFRICA: '&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  TEAMSRILANKA: '&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  TEAMUAE: '&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  TEAMWESTINDIES: '&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  TEAMZIMBABWE: '&format=json&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0',
+  LIVESCORES:'&format=json&diagnostics=true&env=store%3A%2F%2F0TxIGQMQbObzvU4Apia0V0' 
 };
 
 export default {
-  NEWS: `${queries.NEWS}${options.NEWS}`
-  UPCOMINGSERIES: `${queries.SERIES}${options.SERIES}`
+  NEWS: `${queries.NEWS}${options.NEWS}`,
+  UPCOMINGSERIES: `${queries.UPCOMINGSERIES}${options.UPCOMINGSERIES}`,
+  ONGOINGSERIES: `${queries.ONGOINGSERIES}${options.ONGOINGSERIES}`,
+  TEAMAFGHANISTAN: `${queries.TEAMAFGHANISTAN}${options.TEAMAFGHANISTAN}`,
+  TEAMAUSTRALIA: `${queries.TEAMAUSTRALIA}${options.TEAMAUSTRALIA}`, 
+  TEAMBANGLADESH: `${queries.TEAMBANGLADESH}${options.TEAMBANGLADESH}`, 
+  TEAMENGLAND: `${queries.TEAMENGLAND}${options.TEAMENGLAND}`,
+  TEAMINDIA: `${queries.TEAMINDIA}${options.TEAMINDIA}`,
+  TEAMIRELAND: `${queries.TEAMIRELAND}${options.TEAMIRELAND}`,
+  TEAMNZ: `${queries.TEAMNZ}${options.TEAMNZ}`,
+  TEAMPAKISTAN: `${queries.TEAMPAKISTAN}${options.TEAMPAKISTAN}`,
+  TEAMSCOTLAND: `${queries.TEAMSCOTLAND}${options.TEAMSCOTLAND}`,
+  TEAMSOUTHAFRICA: `${queries.TEAMSOUTHAFRICA}${options.TEAMSOUTHAFRICA}`,
+  TEAMSRILANKA: `${queries.TEAMSRILANKA}${options.TEAMSRILANKA}`,
+  TEAMUAE: `${queries.TEAMUAE}${options.TEAMUAE}`,
+  TEAMWESTINDIES: `${queries.TEAMWESTINDIES}${options.TEAMWESTINDIES}`,
+  TEAMZIMBABWE: `${queries.TEAMZIMBABWE}${options.TEAMZIMBABWE}`,
+  LIVESCORES: `${queries.LIVESCORES}${options.LIVESCORES}`, 
 };

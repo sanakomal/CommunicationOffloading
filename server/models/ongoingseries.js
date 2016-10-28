@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
  * News Schema
  */
 
-const UpcomingSeriesSchema = new mongoose.Schema({
+const OngoingSeriesSchema = new mongoose.Schema({
    useriesId: {
     type: String
   },
@@ -34,4 +34,4 @@ const UpcomingSeriesSchema = new mongoose.Schema({
 /**
  * @typedef User
  */
-export default mongoose.model('UpcomimgSeries', UpcomingSeriesSchema);
+export default mongoose.model('OngoingSeries', OngoingSeriesSchema);

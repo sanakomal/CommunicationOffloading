@@ -6,11 +6,11 @@ import request from 'request';
 import baseUrl from '../../apiConfig';
 import parse from '../../global/handlers/jsonHandler';
 import api from '../../global/api';
-import UpcomingSeries from '../models/upcomingseries';
+import OngoingSeries from '../models/ongoingseries';
 
 function fetch() {
   return request.get({
-    url: `${baseUrl}/${api.UPCOMINGSERIES}`,
+    url: `${baseUrl}/${api.ONGOINGSERIES}`,
     headers: {
       Accept: 'application/json'
     }
@@ -21,6 +21,7 @@ function fetch() {
       /* eslint-enable no-console */
     }
     if (!isUndefined(body)) {
+      console.log(body)
       save(parse(body));
     }
   });
@@ -29,32 +30,34 @@ function fetch() {
 function save(data) {
   const results = get(data, 'query.results'); // get act as helper function here
   console.log(results)
-  return UpcomingSeries.find((err, upcomingseries) => {
+  return OngoingSeries.find((err, ongoingseries) => {
     if (!err) {
       return map(results.Series, (series) => {
-        let existingseries = find(upcomingseries, { SeriesId: series.SeriesId });
+        let existingseries = find(ongoingseries, { SeriesId: series.SeriesId });
         if (isUndefined(existingseries)) { 
-          const latestSeries = new UpcomingSeries({
+          const latestSeries = new OngoingSeries({
             useriesId: series.SeriesId,
             SeriesName: series.SeriesName,
-            SeriesStartDate: series.SeriesStartDate,
-            SeriesEndDate: series.SeriesEndDate,
-            StartDate: series.StartDate,
-            EndDate: series.EndDate,
-            Venue: series.Venue,
+            SeriesStartDate: series.StartDate,
+            SeriesEndDate: series.EndDate,
+            // MatchNo : series.Schedule.MatchNo,
+            // StartDate: series.Schedule.StartDate,
+            // EndDate: series.Schedule.EndDate,
+            // Venue: series.Schedule.Venue,
           });
           latestSeries.save();
         }
           if (existingseries) {
-          UpcomingSeries.findOneAndUpdate({ 'SeriesId': existingseries.SeriesId }, {
+          OngoingSeries.findOneAndUpdate({ 'SeriesId': existingseries.SeriesId }, {
             $set: {
             useriesId: series.SeriesId,
             SeriesName: series.SeriesName,
-            SeriesStartDate: series.SeriesStartDate,
-            SeriesEndDate: series.SeriesEndDate,
-            StartDate: series.StartDate,
-            EndDate: series.EndDate,
-            Venue: series.Venue,
+            SeriesStartDate: series.StartDate,
+            SeriesEndDate: series.EndDate,
+           // MatchNo : series.Schedule.MatchNo,
+           //  StartDate: series.Schedule.StartDate,
+           //  EndDate: series.Schedule.EndDate,
+           //  Venue: series.Schedule.Venue,
             }
           }).exec();
         }

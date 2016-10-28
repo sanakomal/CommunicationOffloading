@@ -1,13 +1,13 @@
-import UpcomingSeries from '../models/upcomingseries';
+import OngoingSeries from '../models/ongoingseries';
 import errorHandler from '../../global/handlers/errorHandler';
 
 function get(req, res) {
-  return UpcomingSeries.find((err, upcomingseries) => {
+  return OngoingSeries.find((err, ongoingseries) => {
     if (err) {
-      return res.json(errorHandler.UPCOMINGSERIES);
+      return res.json(errorHandler.ONGOINGSERIES);
     }
      const payload = {
-    	Series: upcomingseries
+    	Series: ongoingseries
     };
     return res.json(payload);
   });
