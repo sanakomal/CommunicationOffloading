@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
 
 /**
- * News Schema
+ * OngoingSeries Schema
  */
 
 const OngoingSeriesSchema = new mongoose.Schema({
-   useriesId: {
+   SeriesId: {
     type: String
   },
   SeriesName: {
@@ -18,6 +18,12 @@ const OngoingSeriesSchema = new mongoose.Schema({
     type: Date,
   },
   MatchNo: {
+    type: String
+  },
+   team1: {
+    type: String
+  },
+   team2: {
     type: String
   },
   Venue: {

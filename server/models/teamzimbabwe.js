@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 /**
- * News Schema
+ * TeamZimbabwe Schema
  */
 
 const TeamZimbabweSchema = new mongoose.Schema({

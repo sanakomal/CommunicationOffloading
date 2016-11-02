@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 /**
- * News Schema
+ * TeamPakistan Schema
  */
 
 const TeamPakistanSchema = new mongoose.Schema({

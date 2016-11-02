@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 /**
- * News Schema
+ * LiveScores Schema
  */
 
 const LiveScoresSchema = new mongoose.Schema({
@@ -20,16 +20,66 @@ const LiveScoresSchema = new mongoose.Schema({
   country: {
     type: String
   },
-   fn: {
+  day: { 
     type: String
   },
-  livescoresId: {
+  team1:{
+    type: String
+  },
+  team2:{
+    type: String
+  },
+  date:{
+    type: Date
+  },
+  match:{
+    type: String
+  },
+  runs:{
+    type: Number
+  },
+  wickets:{
+    type: Number
+  },
+  overs: {
+    type: Number
+  },
+  cr: {
+    type: Number
+  },
+  player1_runs:{
+    type: Number
+  },
+  player1_ball:{
+    type: Number
+  },
+  player1_name:{
+    type: String
+  },
+  player1_four:{
+    type: Number
+  },
+  player1_six:{
+    type: Number
+  },
+   player2_runs:{
+    type: Number
+  },
+  player2_ball:{
+    type: Number
+  },
+  player2_name:{
+    type: String
+  },
+  player2_four:{
+    type: Number
+  },
+  player2_six:{
+    type: Number
+  },
+  seriesId: {
     type: String
   }
 });
 
-/**
- * @typedef User
- */
 export default mongoose.model('LiveScores', LiveScoresSchema);
-//livescores

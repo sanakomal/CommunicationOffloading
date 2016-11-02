@@ -1,6 +1,7 @@
 import get from 'lodash/get';
 import find from 'lodash/find';
 import isUndefined from 'lodash/isUndefined';
+import _ from 'lodash';
 import map from 'lodash/map';
 import request from 'request';
 import baseUrl from '../../apiConfig';
@@ -17,8 +18,7 @@ function fetch() {
   }, (err, httpResponse, body) => {
     if (err) {
       /* eslint-disable no-console */
-      console.error(err);
-      /* eslint-enable no-console */
+      console.error(err); /* eslint-enable no-console */
     }
     if (!isUndefined(body)) {
       console.log(body)
@@ -29,35 +29,44 @@ function fetch() {
 
 function save(data) {
   const results = get(data, 'query.results'); // get act as helper function here
-  console.log(results)
+
   return OngoingSeries.find((err, ongoingseries) => {
     if (!err) {
       return map(results.Series, (series) => {
-        let existingseries = find(ongoingseries, { SeriesId: series.SeriesId });
+        let existingseries = find(ongoingseries, 
+          { SeriesId: series.SeriesId 
+          });
         if (isUndefined(existingseries)) { 
           const latestSeries = new OngoingSeries({
-            useriesId: series.SeriesId,
+            SeriesId: series.SeriesId,
             SeriesName: series.SeriesName,
             SeriesStartDate: series.StartDate,
             SeriesEndDate: series.EndDate,
-            // MatchNo : series.Schedule.MatchNo,
-            // StartDate: series.Schedule.StartDate,
-            // EndDate: series.Schedule.EndDate,
-            // Venue: series.Schedule.Venue,
+            team1: _.get(series, 'Participant.Team[0].Name'),
+            team2: _.get(series, 'Participant.Team[1].Name'),
+            MatchNo: _.get(series, 'Schedule.Match[0].MatchNo'),
+            StartDate: _.get(series, 'Schedule.Match[0].StartDate'),
+            EndDate: _.get(series, 'Schedule.Match[0].EndDate'),
+            Venue: _.get(series, 'Schedule.Match[0].Venue[0].content'),
+        
           });
           latestSeries.save();
         }
+
           if (existingseries) {
           OngoingSeries.findOneAndUpdate({ 'SeriesId': existingseries.SeriesId }, {
             $set: {
-            useriesId: series.SeriesId,
+            SeriesId: series.SeriesId,
             SeriesName: series.SeriesName,
             SeriesStartDate: series.StartDate,
             SeriesEndDate: series.EndDate,
-           // MatchNo : series.Schedule.MatchNo,
-           //  StartDate: series.Schedule.StartDate,
-           //  EndDate: series.Schedule.EndDate,
-           //  Venue: series.Schedule.Venue,
+            team1: _.get(series, 'Participant.Team[0].Name'),
+            team2: _.get(series, 'Participant.Team[1].Name'),
+            MatchNo: _.get(series, 'Schedule.Match[0].MatchNo'),
+            StartDate: _.get(series, 'Schedule.Match[0].StartDate'),
+            EndDate: _.get(series, 'Schedule.Match[0].EndDate'),
+            Venue: _.get(series, 'Schedule.Match[0].Venue[0].content'),
+        
             }
           }).exec();
         }

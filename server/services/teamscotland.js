@@ -29,7 +29,6 @@ function fetch() {
 
 function save(data) {
   const results = get(data, 'query.results.TeamProfile.Players'); // get act as helper function here
- console.log(results);
   return TeamScotland.find((err, teamscotland) => {
     if (!err) {
       return map(results.Player, (player) => {

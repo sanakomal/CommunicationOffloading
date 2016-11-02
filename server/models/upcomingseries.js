@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
 
 /**
- * News Schema
+ * UpcomingSeries Schema
  */
 
 const UpcomingSeriesSchema = new mongoose.Schema({
-   useriesId: {
+  SeriesId: {
     type: String
   },
   SeriesName: {
@@ -20,6 +20,12 @@ const UpcomingSeriesSchema = new mongoose.Schema({
   MatchNo: {
     type: String
   },
+   team1: {
+    type: String
+  },
+   team2: {
+    type: String
+  },
   Venue: {
     type: String
   },
@@ -30,7 +36,6 @@ const UpcomingSeriesSchema = new mongoose.Schema({
     type: Date
   },
 });
-
 /**
  * @typedef User
  */
